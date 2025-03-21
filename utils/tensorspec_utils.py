@@ -28,14 +28,12 @@ from tensor2robot.proto import t2r_pb2
 import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
-from tensorflow.contrib import framework as contrib_framework
 
-nest = contrib_framework.nest
-TSPEC = contrib_framework.TensorSpec
+from tensorflow.compat.v2 import TensorSpec as TSPEC
+from tensorflow.compat.v2 import nest
 
 EXTRA_ASSETS_DIRECTORY = 'assets.extra'
 T2R_ASSETS_FILENAME = 't2r_assets.pbtxt'
-
 
 class ExtendedTensorSpec(TSPEC, object):
   """Extension to TensorSpec to suport optional tensors and data formats.
